@@ -101,4 +101,5 @@ function gocd() {
 
 export JENKINS_URL=http://localhost:8080
 export GPG_TTY=$(tty)
-
+export CDPATH=$GOPATH/src
+alias prettyjson='python -m json.tool'
