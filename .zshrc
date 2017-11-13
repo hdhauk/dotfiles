@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export GOPATH=$HOME/Documents/Go/
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin
 export GOROOT=/usr/local/go
 
 # Path to your oh-my-zsh installation.
@@ -99,7 +99,39 @@ function gocd() {
     cd $(go list -f '{{.Dir}}' $1)
 }
 
+
+function photoBackupNV+(){
+    verbose='false'
+    real='false'
+
+    while getopts 'r' flag; do
+    case "$1" in
+        -r )
+            real='true'
+        ;;
+        *)
+            echo "error"
+            return
+        ;;
+    esac 
+done;
+    if [[ $real == 'true' ]]
+    then
+        echo "== REAL RUN (things can be deleted) =="
+        echo "  -> Starting in 5 seconds"
+        sleep 5
+        echo "  -> Starting..."
+        rsync -avz --delete -e "ssh -p 5362 -l root" /Volumes/seagate/photo/ $SKIEN:/c/public/photo/
+    else
+        echo "== DRY RUN (nothing will be written) =="
+        rsync -avz --delete -e "ssh -p 5362 -l root" --dry-run /Volumes/seagate/photo/ $SKIEN:/c/public/photo/
+    fi
+}
+
+
+
 export JENKINS_URL=http://localhost:8080
 export GPG_TTY=$(tty)
 export CDPATH=$GOPATH/src
 alias prettyjson='python -m json.tool'
+export SKIEN=109.189.147.246
