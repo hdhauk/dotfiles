@@ -1,7 +1,22 @@
 # If you come from bash you might have to change your $PATH.
 export GOPATH=$HOME/Documents/Go/
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin
-export GOROOT=/usr/local/go
+export CDPATH=$GOPATH/src
+
+# Saved variables
+export JENKINS_URL=http://localhost:8080
+export GPG_TTY=$(tty)
+export SKIEN=109.189.147.246
+export SSH_NV=5362
+export SSH_DUO=5364
+export FLICKR_KEY="0b7b28f7c38ac9a38e6f11bb2c33475a"
+
+# Functions/aliases
+alias photoPushNV+="~/Documents/shell/mac-15/push-nv+.sh"
+alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
+alias prettyjson="python -m json.tool"
+alias zshconfig="code ~/.zshrc"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/halvor/.oh-my-zsh
@@ -23,7 +38,7 @@ export ZSH=/Users/halvor/.oh-my-zsh
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -35,7 +50,7 @@ export ZSH=/Users/halvor/.oh-my-zsh
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -45,7 +60,7 @@ export ZSH=/Users/halvor/.oh-my-zsh
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -86,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias flickrKey="0b7b28f7c38ac9a38e6f11bb2c33475a"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/halvor/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/halvor/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -94,44 +109,5 @@ if [ -f '/Users/halvor/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/halvor/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/halvor/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Helper function for getting into Go project folders
-function gocd() {
-    cd $(go list -f '{{.Dir}}' $1)
-}
 
 
-function photoBackupNV+(){
-    verbose='false'
-    real='false'
-
-    while getopts 'r' flag; do
-    case "$1" in
-        -r )
-            real='true'
-        ;;
-        *)
-            echo "error"
-            return
-        ;;
-    esac 
-done;
-    if [[ $real == 'true' ]]
-    then
-        echo "== REAL RUN (things can be deleted) =="
-        echo "  -> Starting in 5 seconds"
-        sleep 5
-        echo "  -> Starting..."
-        rsync -avz --delete -e "ssh -p 5362 -l root" /Volumes/seagate/photo/ $SKIEN:/c/public/photo/
-    else
-        echo "== DRY RUN (nothing will be written) =="
-        rsync -avz --delete -e "ssh -p 5362 -l root" --dry-run /Volumes/seagate/photo/ $SKIEN:/c/public/photo/
-    fi
-}
-
-
-
-export JENKINS_URL=http://localhost:8080
-export GPG_TTY=$(tty)
-export CDPATH=$GOPATH/src
-alias prettyjson='python -m json.tool'
-export SKIEN=109.189.147.246
