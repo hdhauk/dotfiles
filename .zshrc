@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export GOPATH=$HOME/Documents/Go/
+export GOPATH=$HOME/Documents/go/
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin
 export CDPATH=$GOPATH/src
 
@@ -10,16 +10,20 @@ export SKIEN=109.189.147.246
 export SSH_NV=5362
 export SSH_DUO=5364
 export FLICKR_KEY="0b7b28f7c38ac9a38e6f11bb2c33475a"
+export RESTIC_PASSWORD='3mb69kPmDPJz$4xyQVSK'
+export RESTIC_REPOSITORY='/Volumes/seagate/backup/restic'
+export RESTIC_EXCLUDE='/Volumes/seagate/backup/restic/exclude.txt'
 
 # Functions/aliases
 alias photoPushNV+="~/Documents/shell/mac-15/push-nv+.sh"
 alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
 alias prettyjson="python -m json.tool"
 alias zshconfig="code ~/.zshrc"
+alias syncthing-skien='ssh -p 5365 -L 9999:192.168.1.25:9000 root@$SKIEN'
 
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/halvor/.oh-my-zsh
+export ZSH=/Users/hdhauk/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -101,13 +105,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/halvor/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/halvor/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/halvor/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/halvor/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-
 
