@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export GOPATH=$HOME/Documents/go/
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/anaconda3/bin/
 export CDPATH=$GOPATH/src
 
 # Saved variables
