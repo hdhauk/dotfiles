@@ -19,7 +19,8 @@ alias photoPushNV+="~/Documents/shell/mac-15/push-nv+.sh"
 alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
 alias prettyjson="python -m json.tool"
 alias zshconfig="code ~/.zshrc"
-alias syncthing-skien='ssh -p 5365 -L 9999:192.168.1.25:9000 root@$SKIEN'
+alias restic-sanbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
+alias restic-usb="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
 
 
 # Path to your oh-my-zsh installation.
