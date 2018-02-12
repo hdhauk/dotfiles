@@ -19,8 +19,9 @@ alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
 alias prettyjson="python -m json.tool"
 alias zshconfig="code ~/.zshrc"
 alias restic-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
-alias restic-usb="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
-
+alias restic-qnap-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
+alias restic-qnap-usb="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
+alias restic-qnap="restic -r sftp:qnap:/share/backup/restic"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
