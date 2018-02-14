@@ -10,8 +10,6 @@ export JENKINS_URL=http://localhost:8080
 export GPG_TTY=$(tty)
 export SSH_NV=5362
 export SSH_DUO=5364
-export RESTIC_REPOSITORY='/Volumes/seagate/backup/restic'
-export RESTIC_EXCLUDE='/Volumes/seagate/backup/restic/exclude.txt'
 
 # Functions/aliases
 alias photoPushNV+="~/Documents/shell/mac-15/push-nv+.sh"
@@ -19,9 +17,8 @@ alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
 alias prettyjson="python -m json.tool"
 alias zshconfig="code ~/.zshrc"
 alias restic-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
-alias restic-qnap-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
-alias restic-qnap-usb="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
-alias restic-qnap="restic -r sftp:qnap:/share/backup/restic"
+alias restic-toshiba="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
+alias restic="restic -r sftp:qnap:/share/backup/restic"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
