@@ -4,3 +4,12 @@
 .stfolder
 *sync-conflict*
 .tmp*
+node_modules/*
+.hyper_plugins/*
+.npm/*
+.vscode/*
+go/pkg/*
+.git/*
+/hdhauk/Library/*
+/Chrome/Default/Chaces/*
+._*

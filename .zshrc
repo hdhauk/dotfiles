@@ -15,10 +15,19 @@ export SSH_DUO=5364
 alias photoPushNV+="~/Documents/shell/mac-15/push-nv+.sh"
 alias photoPullNV+="~/Documents/shell/mac-15/pull-nv+.sh"
 alias prettyjson="python -m json.tool"
-alias zshconfig="code ~/.zshrc"
-alias restic-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
-alias restic-toshiba="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
-alias restic="restic -r sftp:qnap:/share/backup/restic"
+alias myip="curl http://ipecho.net/plain; echo"
+
+if [[ $(uname) == 'Linux' ]]; then
+	alias zshconfig="nano ~/.zshrc"
+	alias update="sudo apt update && sudo apt upgrade"
+
+elif [[ $(uname) == 'Darwin' ]]; then
+	alias zshconfig="code ~/.zshrc"
+	alias update="brew update && brew upgrade && brew cu -facy"
+	alias restic-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
+	alias restic-toshiba="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
+	alias restic="restic -r sftp:qnap:/share/backup/restic"
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -26,7 +35,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
- ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -103,4 +112,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
