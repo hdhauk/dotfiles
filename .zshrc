@@ -20,13 +20,16 @@ alias myip="curl http://ipecho.net/plain; echo"
 if [[ $(uname) == 'Linux' ]]; then
 	alias zshconfig="nano ~/.zshrc"
 	alias update="sudo apt update && sudo apt upgrade"
-
+	alias restic="restic -r sftp:qnap-local:/share/backup/restic"
+	alias restic-toshiba="restic -r sftp:qnap-local:/share/USBDisk1/backup/restic"
+	ZSH_THEME="cypher"
 elif [[ $(uname) == 'Darwin' ]]; then
 	alias zshconfig="code ~/.zshrc"
 	alias update="brew update && brew upgrade && brew cu -facy"
 	alias restic-sandbox="restic -r sftp:qnap:/share/sandbox/restic --password-file /Volumes/TheSandbox/restic_password.txt"
 	alias restic-toshiba="restic -r sftp:qnap:/share/USBDisk1/backup/restic"
 	alias restic="restic -r sftp:qnap:/share/backup/restic"
+	ZSH_THEME="robbyrussell"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -35,7 +38,7 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
