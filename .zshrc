@@ -19,7 +19,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 
 if [[ $(uname) == 'Linux' ]]; then
 	alias zshconfig="nano ~/.zshrc"
-	alias update="sudo apt update && sudo apt upgrade"
+	alias update="sudo apt update && sudo apt upgrade -y"
 	alias restic="restic -r sftp:qnap-local:/share/backup/restic"
 	alias restic-toshiba="restic -r sftp:qnap-local:/share/USBDisk1/backup/restic"
 	ZSH_THEME="cypher"
